@@ -1,6 +1,9 @@
-import SideComponent from "@/components/SideComponent";
-import Select from "@/components/ui/Select";
+// import SideComponent from "@/components/SideComponent";
+// import Select from "@/components/ui/Select";
 import Image from "next/image";
+import React from "react";
+import SideComponent from "../../../../components/SideComponent";
+import Select from "../../../../components/ui/Select";
 
 const Sidebar = () => {
   const menu = [

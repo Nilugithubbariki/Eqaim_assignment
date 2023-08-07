@@ -1,3 +1,5 @@
+import React from "react";
+
 const Select = ({name}) => {
     return ( 
         <div className="rounded-[0.625rem] bg-[#f2f4ff] flex items-center justify-center transition hover:bg-[#CFD7FF] cursor-pointer">

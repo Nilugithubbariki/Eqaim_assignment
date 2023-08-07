@@ -1,3 +1,5 @@
+import React from "react";
+
 const GoBack = ({ color }) => {
     return ( 
         <div className={`inline-flex gap-x-[0.8rem] items-center justify-center text-bold ${color}`}>

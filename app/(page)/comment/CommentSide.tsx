@@ -1,8 +1,8 @@
-"use client";
-import DropdownMenu from "@/components/dropdown/DropdownMenu";
-import Button from "@/components/ui/Button";
-import Vote from "@/components/ui/Vote";
-import data from "@/public/data.json";
+
+"use client"
+import DropdownMenu from "../../../components/dropdown/DropdownMenu";
+import Button from "../../../components/ui/Button";
+import IUser from "../../../public/data.json"
 
 const CommentSide = () => {
   return (
@@ -35,14 +35,14 @@ const CommentSide = () => {
           <DropdownMenu />
         </div>
         <div className="ml-auto">
-          <Button text="+ Add Feedback" />
+          <Button text="+ Add Feedback" component={undefined} />
         </div>
       </div>
       {false && (
         <div className="h-[37.5rem] bg-[#fff] rounded-[0.625rem] w-full gap-[1.25rem]"></div>
       )}
 
-      {data.productRequests.map((item) => {
+      {IUser.productRequests.map((item) => {
         return (
           <div>
             <div className="h-[9.4375rem] rounded-[0.625rem] bg-[#fff] w-full p-[1.5rem]">
@@ -76,7 +76,7 @@ const CommentSide = () => {
                     </div>
                     <div>{item.description}</div>
                     <div>
-                      <Button text={item.category} />
+                      <Button text={item.category} component={undefined} />
                     </div>
                   </div>
                 </div>
