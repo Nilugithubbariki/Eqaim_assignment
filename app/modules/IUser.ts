@@ -1,9 +1,9 @@
 export interface IUser {
-    id: number;
-    title: string;
-    category: string;
-    upvotes: number;
-    status: string;
-    description: string;
+    id: any;
+    title: any;
+    category: any;
+    upvotes: any;
+    status: any;
+    description: any;
   }
   
