@@ -9,7 +9,7 @@ export default function Home() {
     <Container>
       <div className='flex pt-20 flex-col gap-[1.88rem] lg:flex-row'>
         <Sidebar />
-        <CommentSide />
+        <CommentSide/>
       </div>
     </Container>
   )

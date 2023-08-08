@@ -6,6 +6,14 @@ import Button from "../../../components/ui/Button";
 import IUser from "../../../public/data.json"
 import FeedbackPage from "../../../components/ui/FeedbackPage";
 const CommentSide = () => {
+  const sortDataByProperty = () => {
+    const sortData = IUser?.productRequests?.sort((a:any,b:any)=>{
+      return a?.title?.toUpperCase()?.localeCompare(b?.title.toUpperCase())
+    })
+    console.log(sortData)
+  }
+
+
   const [showForm, setShowForm] = useState(false);
   const FeedbackForm = () => {
     setShowForm(true)
@@ -36,13 +44,11 @@ const CommentSide = () => {
           <span className="font-bold text-sm not-italic leading-normal text-[#fff]">
             6 Suggestions
           </span>
-          <span className="text-[#f2f4fe] cursor-pointer">Sort by:</span>
+          <span className="text-[#f2f4fe] cursor-pointer" onClick={()=>sortDataByProperty()}>Sort by:</span>
           <DropdownMenu />
         </div>
         <div className="ml-auto" onClick={()=>FeedbackForm()}  >
-          {/* onClick={handleFeedbackButtonClick} */}
           <Button text="+ Add Feedback" component={undefined} />
-          {/* {showForm && <FeedbackForm/>} */}
           {showForm && <FeedbackPage/>}
         </div>
       </div>
@@ -50,7 +56,7 @@ const CommentSide = () => {
         <div className="h-[37.5rem] bg-[#fff] rounded-[0.625rem] w-full gap-[1.25rem]"></div>
       )}
 
-      {IUser?.productRequests?.map((item:any) => {
+      {IUser?.productRequests?.map((item) => {
         return (
           <div>
             <div className="h-[9.4375rem] rounded-[0.625rem] bg-[#fff] w-full p-[1.5rem]">
