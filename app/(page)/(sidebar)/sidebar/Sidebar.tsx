@@ -22,9 +22,9 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className="flex gap-[1.5rem] flex-col">
+    <div className="flex gap-[1.5rem] flex-row lg:flex-col justify-center lg:justify-start">
       <SideComponent>
-        <div className="overflow-hidden relative w-full h-full">
+        <div className="relative w-full h-full overflow-hidden">
           <Image
             fill
             src="/assets/suggestions/desktop/background-header.png"
@@ -60,7 +60,7 @@ const Sidebar = () => {
           </div>
           <div className="flex flex-col">
             {status.map((item) => (
-              <div key={item.id} className="flex justify-between items-center">
+              <div key={item.id} className="flex items-center justify-between">
                 <span className="flex gap-[1rem] items-center justify-center">
                   <span className="w-[0.5rem] h-[0.5rem]">
                     {item.id === 1 && (

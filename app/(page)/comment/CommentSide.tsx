@@ -1,10 +1,15 @@
 
 "use client"
+import { useState } from "react";
 import DropdownMenu from "../../../components/dropdown/DropdownMenu";
 import Button from "../../../components/ui/Button";
 import IUser from "../../../public/data.json"
-
+import FeedbackPage from "../../../components/ui/FeedbackPage";
 const CommentSide = () => {
+  const [showForm, setShowForm] = useState(false);
+  const FeedbackForm = () => {
+    setShowForm(true)
+  }
   return (
     <div className="flex flex-col gap-[1.5rem] w-full h-full">
       <div className="bg-[#373f68] rounded-[0.625rem] h-[4.5rem] flex items-center p-[1.5rem] w-full">
@@ -31,18 +36,21 @@ const CommentSide = () => {
           <span className="font-bold text-sm not-italic leading-normal text-[#fff]">
             6 Suggestions
           </span>
-          <span className="text-[#f2f4fe]">Sort by:</span>
+          <span className="text-[#f2f4fe] cursor-pointer">Sort by:</span>
           <DropdownMenu />
         </div>
-        <div className="ml-auto">
+        <div className="ml-auto" onClick={()=>FeedbackForm()}  >
+          {/* onClick={handleFeedbackButtonClick} */}
           <Button text="+ Add Feedback" component={undefined} />
+          {/* {showForm && <FeedbackForm/>} */}
+          {showForm && <FeedbackPage/>}
         </div>
       </div>
       {false && (
         <div className="h-[37.5rem] bg-[#fff] rounded-[0.625rem] w-full gap-[1.25rem]"></div>
       )}
 
-      {IUser.productRequests.map((item) => {
+      {IUser?.productRequests?.map((item:any) => {
         return (
           <div>
             <div className="h-[9.4375rem] rounded-[0.625rem] bg-[#fff] w-full p-[1.5rem]">
