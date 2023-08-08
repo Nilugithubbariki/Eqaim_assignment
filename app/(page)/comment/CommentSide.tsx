@@ -3,14 +3,21 @@
 import { useState } from "react";
 import DropdownMenu from "../../../components/dropdown/DropdownMenu";
 import Button from "../../../components/ui/Button";
-import IUser from "../../../public/data.json"
+import { IUser } from "../../modules/IUser";
+import IUsers from "../../../public/data.json"
 import FeedbackPage from "../../../components/ui/FeedbackPage";
-const CommentSide = () => {
+interface IUserProps{
+   data : IUser
+}
+const CommentSide:React.FC <IUserProps> = ({data}) => {
+  const [updatedata,setUpdateData] = useState([]);
   const sortDataByProperty = () => {
-    const sortData = IUser?.productRequests?.sort((a:any,b:any)=>{
+    const sortData = IUsers?.productRequests?.sort((a:any,b:any)=>{
       return a?.title?.toUpperCase()?.localeCompare(b?.title.toUpperCase())
     })
     console.log(sortData)
+    setUpdateData (sortData);
+   
   }
 
 
@@ -56,7 +63,7 @@ const CommentSide = () => {
         <div className="h-[37.5rem] bg-[#fff] rounded-[0.625rem] w-full gap-[1.25rem]"></div>
       )}
 
-      {IUser?.productRequests?.map((item) => {
+      {IUsers?.productRequests?.map((item:any) => {
         return (
           <div>
             <div className="h-[9.4375rem] rounded-[0.625rem] bg-[#fff] w-full p-[1.5rem]">
