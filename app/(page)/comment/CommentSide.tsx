@@ -11,6 +11,7 @@ interface IUserProps{
 }
 const CommentSide:React.FC <IUserProps> = ({data}) => {
   const [updatedata,setUpdateData] = useState([]);
+  const [toggle,setToggle] = useState(false)
   const sortDataByProperty = () => {
     const sortData = IUsers?.productRequests?.sort((a:any,b:any)=>{
       return a?.title?.toUpperCase()?.localeCompare(b?.title.toUpperCase())
@@ -24,6 +25,7 @@ const CommentSide:React.FC <IUserProps> = ({data}) => {
   const [showForm, setShowForm] = useState(false);
   const FeedbackForm = () => {
     setShowForm(true)
+    setToggle(!toggle)
   }
   return (
     <div className="flex flex-col gap-[1.5rem] w-full h-full">
@@ -56,7 +58,8 @@ const CommentSide:React.FC <IUserProps> = ({data}) => {
         </div>
         <div className="ml-auto" onClick={()=>FeedbackForm()}  >
           <Button text="+ Add Feedback" component={undefined} />
-          {showForm && <FeedbackPage/>}
+          {showForm && toggle && <FeedbackPage/>}
+          
         </div>
       </div>
       {false && (

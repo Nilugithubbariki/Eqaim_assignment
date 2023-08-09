@@ -1,4 +1,3 @@
-// pages/index.tsx
 import React, { useState } from 'react';
 
 const FeedbackPage: React.FC = () => {
@@ -16,18 +15,18 @@ const FeedbackPage: React.FC = () => {
           onClick={toggleFeedback}
           className="bg-blue-500 text-white px-4 py-2 rounded"
         >
-          {isFeedbackOpen ? 'Close Feedback' : 'Go To The FeedbackBox'}
+          {isFeedbackOpen?"Open":"Go Back"}
         </button>
-        {isFeedbackOpen && (
+       
           <div className="mt-4">
             <textarea
               rows={4}
-              cols={50}
+              cols={100}
               placeholder="Write your feedback here"
               className="border p-2 rounded w-full"
             />
           </div>
-        )}
+    
       </div>
     </div>
   );
