@@ -12,12 +12,13 @@ interface IUserProps{
 const CommentSide:React.FC <IUserProps> = ({data}) => {
   const [updatedata,setUpdateData] = useState([]);
   const [toggle,setToggle] = useState(false)
+  const [sortData,setSortData] = useState("ascending");
   const sortDataByProperty = () => {
     const sortData = IUsers?.productRequests?.sort((a:any,b:any)=>{
       return a?.title?.toUpperCase()?.localeCompare(b?.title.toUpperCase())
     })
     console.log(sortData)
-    setUpdateData (sortData);
+    setUpdateData (sortData)
    
   }
 
